@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HEYTML-BOY Birthday Gift</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="gameboy-wrapper">
+        <div class="top-bar">
+            <span class="indicator power-light">POWER</span>
+            <span class="logo">HEYTML-BOY</span>
+            <span class="indicator battery-status">BATTERY</span>
+        </div>
+
+        <div class="screen-container">
+            <pre id="screen-content" class="screen-text"></pre>
+        </div>
+
+        <div class="info-line">
+            DOT MATRIX WITH STEREO SOUND
+        </div>
+
+        <div class="controls-grid">
+            <div class="d-pad-container">
+                <button class="d-pad-btn up"></button>
+                <button class="d-pad-btn down"></button>
+                <button class="d-pad-btn left"></button>
+                <button class="d-pad-btn right"></button>
+                <div class="d-pad-center"></div>
+            </div>
+
+            <div class="main-buttons">
+                <button class="button-main message" id="message-btn">MESSAGE</button>
+                <button class="button-main gallery" id="gallery-btn">GALLERY</button>
+                <button class="button-main music" id="music-btn">MUSIC</button>
+                <button class="button-main tetris" id="tetris-btn">TETRIS</button>
+            </div>
+
+            
+        </div>
+
+        <div class="bottom-controls">
+            <button class="button-small select" id="select-btn">SELECT</button>
+            <button class="button-small start" id="start-btn">START</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

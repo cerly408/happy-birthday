@@ -1,0 +1,134 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #d851f3; /* Latar belakang gelap seperti laptop */
+    font-family: 'Press Start 2P', cursive;
+    color: #eee;
+    overflow: hidden;
+}
+
+.message-container {
+    width: 380px; /* Lebar lebih besar sedikit dari Game Boy */
+    height: 600px;
+    background-color: #ae16d4; /* Warna dasar hitam untuk container pesan */
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    box-sizing: border-box; /* Pastikan padding dihitung dalam lebar/tinggi */
+}
+
+.message-screen {
+    width: 100%;
+    height: 380px; /* Area layar pesan yang lebih besar */
+    background-color: #ec6be6; /* Hijau gelap ala layar retro */
+    border: 5px solid #972291; /* Border layar */
+    border-radius: 8px;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    position: relative; /* Untuk posisi tombol SKIP */
+}
+
+.message-title {
+    color: #0a0a0a; /* Hijau terang untuk judul */
+    font-size: 1.5em;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 0 rgba(0,0,0,0.5); /* Efek bayangan teks */
+}
+
+.message-text {
+    flex-grow: 1; /* Memenuhi sisa ruang */
+    color: #121312; /* Hijau lebih terang untuk konten */
+    font-size: 0.9em;
+    line-height: 1.5;
+    white-space: pre-wrap; /* Mempertahankan spasi dan baris baru */
+    overflow-y: auto; /* Scroll jika konten terlalu panjang */
+    padding-right: 5px; /* Sedikit padding untuk scrollbar */
+    scrollbar-width: thin; /* Untuk Firefox */
+    scrollbar-color: #002b00 #004d00; /* Thumb dan track untuk Firefox */
+}
+
+/* Custom scrollbar untuk WebKit (Chrome, Safari) */
+.message-text::-webkit-scrollbar {
+    width: 8px;
+}
+.message-text::-webkit-scrollbar-track {
+    background: #0d0e0d; /* Warna track scrollbar */
+}
+.message-text::-webkit-scrollbar-thumb {
+    background-color: #020202; /* Warna thumb scrollbar */
+    border-radius: 10px;
+    border: 2px solid #004d00;
+}
+
+.message-action-btn {
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: none;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.7em;
+    cursor: pointer;
+    box-shadow: 0 3px 0 rgba(0, 0, 0, 0.3);
+    transition: all 0.1s ease;
+    text-align: center;
+    color: white;
+}
+
+.message-action-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+}
+
+.skip-btn {
+    background-color: #151616; /* Biru untuk SKIP */
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 80px; /* Menyesuaikan lebar tombol skip */
+}
+
+
+.message-nav-buttons {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    gap: 15px;
+    margin-top: auto; /* Dorong ke bawah */
+}
+
+.nav-btn {
+    flex-grow: 1;
+    padding: 15px 10px;
+    border-radius: 8px;
+    border: none;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.9em;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.3);
+    transition: all 0.1s ease;
+}
+
+.nav-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+.nav-btn.next-btn {
+    background-color: #121312; /* Hijau */
+}
+
+.nav-btn.back-btn {
+    background-color: #111111; /* Merah */
+}

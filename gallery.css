@@ -1,0 +1,148 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #222;
+    font-family: 'Press Start 2P', cursive;
+    color: #eee;
+    overflow: hidden;
+}
+
+.photobox-container {
+    width: 380px;
+    height: 600px;
+    background-color: #444; /* Warna dasar abu-abu gelap */
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    box-sizing: border-box;
+}
+
+.photobox-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin-bottom: 10px;
+}
+
+.header-title {
+    color: #90ee90; /* Hijau terang */
+    font-size: 1em;
+    text-align: center;
+}
+
+.indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 1px solid #666;
+}
+
+.left-light { background-color: #ff0000; } /* Merah */
+.right-light { background-color: #00ff00; } /* Hijau */
+
+.progress-bar-container {
+    width: 90%;
+    height: 5px;
+    background-color: #666;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.progress-bar {
+    width: 0%; /* Diatur oleh JS */
+    height: 100%;
+    background-color: #00ff00; /* Hijau */
+    transition: width 0.3s ease-in-out; /* Animasi progress bar */
+}
+
+.photo-display {
+    width: 90%;
+    height: 250px; /* Tinggi area foto */
+    background-color: #1a1a1a; /* Hitam gelap */
+    border-radius: 8px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Pastikan foto tidak keluar */
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.current-photo {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Memastikan gambar pas di dalam container */
+    display: none; /* Sembunyikan secara default, ditampilkan oleh JS */
+}
+
+.status-text {
+    color: #ccc;
+    font-size: 0.8em;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.print-button {
+    padding: 15px 30px;
+    background-color: #dc3545; /* Merah */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1em;
+    cursor: pointer;
+    box-shadow: 0 5px 0 rgba(0, 0, 0, 0.3);
+    transition: all 0.1s ease;
+    margin-bottom: 30px;
+}
+
+.print-button:active {
+    transform: translateY(2px);
+    box-shadow: 0 3px 0 rgba(0, 0, 0, 0.3);
+}
+
+.nav-buttons {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    gap: 15px;
+}
+
+.nav-btn {
+    flex-grow: 1;
+    padding: 15px 10px;
+    border-radius: 8px;
+    border: none;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.9em;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.3);
+    transition: all 0.1s ease;
+}
+
+.nav-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+.nav-btn.next-btn {
+    background-color: #28a745; /* Hijau */
+}
+
+.nav-btn.back-btn {
+    background-color: #dc3545; /* Merah */
+}

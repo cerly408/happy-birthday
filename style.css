@@ -1,0 +1,258 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: hsl(298, 73%, 64%); /* Latar belakang gelap seperti laptop */
+    font-family: 'Press Start 2P', cursive; /* Font piksel */
+    color: #5f0c44;
+    overflow: hidden;
+}
+
+.gameboy-wrapper {
+    width: 350px;
+    height: 600px;
+    background-color: #920b8b; /* Warna bodi Game Boy */
+    border-radius: 25px;
+    padding: 25px;
+    box-shadow:
+        inset 0 0 10px rgba(0, 0, 0, 0.3), /* Bayangan dalam untuk kedalaman */
+        0 10px 20px rgba(0, 0, 0, 0.5); /* Bayangan luar */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+}
+
+/* --- Top Bar (POWER, HEYTML-BOY, BATTERY) --- */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 0.7em;
+    margin-bottom: 10px;
+    color: #070707;
+}
+
+.indicator {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.indicator::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 1px solid #111111;
+}
+
+.power-light::before { background-color: #ff0000; box-shadow: 0 0 5px #ff0000; }
+.battery-status::before { background-color: #00ff00; box-shadow: 0 0 5px #00ff00; }
+
+.logo {
+    font-size: 1em;
+    color: #1a1919;
+}
+
+/* --- Screen --- */
+.screen-container {
+    width: 90%;
+    height: 150px;
+    background-color: #bb76af; /* Warna layar Game Boy */
+    border: 5px solid #96608f;
+    border-radius: 8px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.screen-text {
+    color: #0d0e0d; /* Warna teks di layar */
+    font-size: 1.1em;
+    text-align: center;
+    white-space: pre-wrap; /* Mempertahankan baris baru dari JS */
+    margin: 0;
+    line-height: 1.2; /* Jarak antar baris */
+}
+
+/* --- Info Line --- */
+.info-line {
+    font-size: 0.6em;
+    color: #111111;
+    text-align: center;
+    margin-top: -10px;
+}
+
+/* --- Controls Grid (D-Pad, Main Buttons, Action Buttons) --- */
+.controls-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr; /* Kolom untuk D-pad, Tombol Utama, Tombol A/B */
+    align-items: center;
+    width: 100%;
+    margin-top: 15px;
+    gap: 15px;
+}
+
+/* D-Pad */
+.d-pad-container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-color: #c156d6;
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
+    margin-left: 10px;
+}
+
+.d-pad-container::before,
+.d-pad-container::after {
+    content: '';
+    position: absolute;
+    background-color: #85176d;
+    box-shadow: 0 3px 0 #222;
+}
+
+.d-pad-container::before { /* Vertical bar */
+    width: 30px;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.d-pad-container::after { /* Horizontal bar */
+    width: 100%;
+    height: 30px;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.d-pad-center {
+    width: 30px;
+    height: 30px;
+    background-color: #131212;
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1; /* Pastikan di atas bar */
+    box-shadow: inset 0 0 3px rgba(0,0,0,0.5);
+}
+
+.d-pad-btn {
+    position: absolute;
+    background-color: transparent; /* Tombol transparan di atas bar */
+    border: none;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 2; /* Pastikan bisa diklik */
+}
+
+.d-pad-btn.up { top: 0; left: 50%; transform: translateX(-50%); }
+.d-pad-btn.down { bottom: 0; left: 50%; transform: translateX(-50%); }
+.d-pad-btn.left { left: 0; top: 50%; transform: translateY(-50%); }
+.d-pad-btn.right { right: 0; top: 50%; transform: translateY(-50%); }
+
+.d-pad-btn:active {
+    background-color: rgba(0,0,0,0.1);
+}
+
+/* Main Buttons (MESSAGE, GALLERY, MUSIC, TETRIS) */
+.main-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-right: 15px;
+}
+
+.button-main {
+    padding: 15px 5px;
+    border-radius: 8px;
+    border: none;
+    font-size: 0.8em;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.3); /* Efek 3D */
+    transition: all 0.1s ease;
+    text-align: center;
+}
+
+.button-main:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+.button-main.message { background-color: #6a0dad; } /* Ungu */
+.button-main.gallery { background-color: #e955b7; } /* Merah */
+.button-main.music { background-color: #3498db; } /* Biru */
+.button-main.tetris { background-color: #28a745; } /* Hijau */
+
+/* Action Buttons (A, B) */
+.action-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+
+.button-action {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Lingkaran */
+    border: none;
+    font-size: 1.2em;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.3);
+    transition: all 0.1s ease;
+}
+
+.button-action:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+.button-action.b-btn { background-color: #c0392b; }
+.button-action.a-btn { background-color: #27ae60; }
+
+/* Select/Start Buttons */
+.bottom-controls {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    width: 80%;
+    margin-top: 20px;
+}
+
+.button-small {
+    padding: 8px 15px;
+    border-radius: 15px; /* Bentuk pil */
+    border: none;
+    font-size: 0.7em;
+    color: white;
+    cursor: pointer;
+    background-color: #555;
+    box-shadow: 0 3px 0 rgba(0, 0, 0, 0.3);
+    transition: all 0.1s ease;
+}
+
+.button-small:active {
+    transform: translateY(2px);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+}

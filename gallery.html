@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery Photobox - HEYTML-BOY</title>
+    <link rel="stylesheet" href="gallery.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="photobox-container">
+        <div class="photobox-header">
+            <span class="indicator left-light"></span>
+            <span class="header-title">HEYTML PHOTOBOX</span>
+            <span class="indicator right-light"></span>
+        </div>
+        <div class="progress-bar-container">
+            <div class="progress-bar"></div>
+        </div>
+
+        <div class="photo-display">
+            <img id="current-photo" src="gambar/gallery_foto1.jpg" alt="Gallery Photo" class="current-photo">
+            <img id="current-photo" src="gambar/gallery foto2.jpg" alt="Gallery Photo" class="current-photo">
+            <img id="current-photo" src="gambar/gallery_foto3.jpg" alt="Gallery Photo" class="current-photo">
+            <p id="status-text" class="status-text">Photobox siap digunakan</p>
+        </div>
+
+        <button id="print-btn" class="print-button">MULAI CETAK</button>
+
+        <div class="nav-buttons">
+            <button id="next-photo-btn" class="nav-btn next-btn">SELANJUTNYA</button>
+            <button id="back-to-menu-btn" class="nav-btn back-btn">KEMBALI</button>
+        </div>
+    </div>
+
+    <script src="gallery.js"></script>
+</body>
+</html>
